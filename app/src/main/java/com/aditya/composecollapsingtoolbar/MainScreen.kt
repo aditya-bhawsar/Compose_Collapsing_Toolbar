@@ -17,6 +17,7 @@ import androidx.compose.ui.input.nestedscroll.NestedScrollSource
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
+import com.aditya.composecollapsingtoolbar.components.MainScreenList
 import com.aditya.composecollapsingtoolbar.components.MainScreenTopBar
 
 @Composable
@@ -52,6 +53,8 @@ fun MainScreen() {
             .fillMaxSize()
             .nestedScroll(nestedScrollConnection)
     ) {
+        MainScreenList(topbarHeight = topbarHeight)
+
         MainScreenTopBar(
             topbarHeight = topbarHeight,
             topbarOffsetHeightAnim = topbarOffsetHeightAnim
