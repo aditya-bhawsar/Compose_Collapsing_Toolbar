@@ -5,9 +5,6 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
-import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -19,9 +16,8 @@ import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
 import androidx.compose.ui.input.nestedscroll.NestedScrollSource
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import kotlin.math.roundToInt
+import com.aditya.composecollapsingtoolbar.components.MainScreenTopBar
 
 @Composable
 fun MainScreen() {
@@ -51,13 +47,14 @@ fun MainScreen() {
         }
     }
 
-    Box(modifier = Modifier.fillMaxSize().nestedScroll(nestedScrollConnection)) {
-    }
-
-    TopAppBar(
+    Box(
         modifier = Modifier
-            .height(topbarHeight)
-            .offset { IntOffset(x = 0, y = topbarOffsetHeightAnim.roundToInt()) },
-        elevation = 0.dp
-    ) {}
+            .fillMaxSize()
+            .nestedScroll(nestedScrollConnection)
+    ) {
+        MainScreenTopBar(
+            topbarHeight = topbarHeight,
+            topbarOffsetHeightAnim = topbarOffsetHeightAnim
+        )
+    }
 }
